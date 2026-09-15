@@ -8,8 +8,8 @@ const BasicsProps = () => {
   return (
     <section id="basics" className="sectionCard">
       <h2 className="text-2xl font-bold">Basics Props</h2>
-      <p className="text-zinc-300">This is examples of using props in React components.</p>
-      <p className="text-zinc-300">Click the buttons to see the props in action.</p>
+      <p className="text-muted-foreground">This is examples of using props in React components.</p>
+      <p className="text-muted-foreground">Click the buttons to see the props in action.</p>
       <p>Click count: {clickCount}</p>
 
       {/* different colors */}

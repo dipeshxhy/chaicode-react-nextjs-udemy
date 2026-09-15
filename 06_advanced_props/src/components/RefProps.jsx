@@ -5,11 +5,11 @@ import { useRef } from 'react';
 const CustomInput = forwardRef(({ label, ...props }, ref) => {
   return (
     <div className="mb-2">
-      <label className="block mb-1 text-zinc-300">{label}</label>
+      <label className="block mb-1 text-muted-foreground">{label}</label>
       <input
         ref={ref}
         type="text"
-        className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="border border-border bg-background text-foreground rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         {...props}
       />
     </div>
@@ -49,7 +49,7 @@ const RefProps = () => {
   return (
     <section id="ref" className="sectionCard">
       <Title text={'Ref Props'} />
-      <p className="text-zinc-300">This is an example of using ref props in React components.</p>
+      <p className="text-muted-foreground">This is an example of using ref props in React components.</p>
       <CustomInput ref={nameInputRef} label="Name" placeholder="Enter your name" />
       <CustomInput ref={emailInputRef} label="Email" placeholder="Enter your email" />
       <div className="flex gap-2">

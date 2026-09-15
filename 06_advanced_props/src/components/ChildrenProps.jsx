@@ -1,16 +1,21 @@
 import CustomButton from './CustomButton';
 import Title from './Title';
 
-function Card({ children, title, color = 'bg-zinc-700' }) {
+function Card({ children, title, color = 'bg-muted' }) {
   const colorClasses = {
     primary: 'bg-blue-500',
     secondary: 'bg-gray-500',
     danger: 'bg-red-500',
     success: 'bg-green-500',
   };
+  const isColored = color in colorClasses;
   return (
     <div className={`p-4 rounded-md ${color} ${colorClasses[color] || ''}`}>
-      {title && <h3 className="text-xl font-bold mb-3 text-gray-300">{title}</h3>}
+      {title && (
+        <h3 className={`text-xl font-bold mb-3 ${isColored ? 'text-white' : 'text-foreground'}`}>
+          {title}
+        </h3>
+      )}
       {children}
     </div>
   );
@@ -27,26 +32,26 @@ const ChildrenProps = () => {
   return (
     <section id="children" className="sectionCard">
       <Title text={'Children Props'} />
-      <p className="text-zinc-300">
+      <p className="text-muted-foreground">
         This is an example of using children props in React components.
       </p>
 
       <Title text={'Different Layouts'} />
-      <p className="text-zinc-300">
+      <p className="text-muted-foreground">
         This is an example of using different layouts with the Container component.
       </p>
       <Container layout="horizontal">
         <Card title="Card 1" color="primary">
-          <p className="text-zinc-300">This is the content of Card 1.</p>
+          <p className="text-white">This is the content of Card 1.</p>
         </Card>
         <Card title="Card 2" color="secondary">
-          <p className="text-zinc-300">This is the content of Card 2.</p>
+          <p className="text-white">This is the content of Card 2.</p>
         </Card>
         <Card title="Card 3" color="danger">
-          <p className="text-zinc-300">This is the content of Card 3.</p>
+          <p className="text-white">This is the content of Card 3.</p>
         </Card>
         <Card title="Statistics" color="success">
-          <div>
+          <div className="text-white">
             <h3>
               Name: <span>Dipesh</span>
             </h3>
@@ -76,16 +81,16 @@ const ChildrenProps = () => {
       </Container>
       <Container layout="vertical">
         <Card title="Card 1" color="primary">
-          <p className="text-zinc-300">This is the content of Card 1.</p>
+          <p className="text-white">This is the content of Card 1.</p>
         </Card>
         <Card title="Card 2" color="secondary">
-          <p className="text-zinc-300">This is the content of Card 2.</p>
+          <p className="text-white">This is the content of Card 2.</p>
         </Card>
         <Card title="Card 3" color="danger">
-          <p className="text-zinc-300">This is the content of Card 3.</p>
+          <p className="text-white">This is the content of Card 3.</p>
         </Card>
         <Card title="Card 4" color="success">
-          <p className="text-zinc-300">This is the content of Card 4.</p>
+          <p className="text-white">This is the content of Card 4.</p>
         </Card>
       </Container>
     </section>

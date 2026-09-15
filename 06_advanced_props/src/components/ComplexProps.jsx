@@ -10,7 +10,7 @@ function UserProfileCard({ user, theme, actions }) {
           {user.avatar}
         </div>
         <div className="flex-1">
-          <h3 className="text-xl font-bold mb-1">{user.name}</h3>
+          <h3 className="text-xl  font-bold mb-1">{user.name}</h3>
           <p className="text-sm opacity-80 mb-2">{user.email}</p>
           <div className="flex gap-2 text-sm">
             <span className={`px-3 py-1 rounded-full ${theme.badgeBg}`}>{user.role}</span>
@@ -18,10 +18,10 @@ function UserProfileCard({ user, theme, actions }) {
           </div>
           {/* stats */}
           {user.stats && (
-            <div className="mt-4 pt-4 border-t border-gray-300 grid grid-cols-3 gap-4">
+            <div className="mt-4 pt-4 border-t border-gray-300   grid grid-cols-3 gap-4">
               {Object.entries(user.stats).map(([key, value]) => (
                 <div key={key} className="">
-                  <div className="text-2xl font-bold">{value}</div>
+                  <div className="text-2xl font-bold ">{value}</div>
                   <div className="text-xs opacity-75 capitalize">{key}</div>
                 </div>
               ))}
@@ -70,10 +70,11 @@ const ComplexProps = () => {
         },
       },
       theme: {
-        backgroundColor: 'bg-gradient-to-br from-purple-100 to-blue-100',
-        textColor: 'text-gray-800',
-        avatarBg: 'bg-purple-300',
-        badgeBg: 'bg-purple-200',
+        backgroundColor:
+          'bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-950 dark:to-blue-950',
+        textColor: 'text-gray-800 dark:text-purple-50',
+        avatarBg: 'bg-purple-300 dark:bg-purple-600',
+        badgeBg: 'bg-purple-200 dark:bg-purple-700',
       },
       actions: {
         primary: {
@@ -84,7 +85,8 @@ const ComplexProps = () => {
         secondary: {
           label: 'Message',
           onClick: () => setMessage('Opening message to Alice'),
-          className: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+          className:
+            'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600',
         },
       },
     },
@@ -102,10 +104,11 @@ const ComplexProps = () => {
         },
       },
       theme: {
-        backgroundColor: 'bg-gradient-to-br from-green-100 to-teal-100',
-        textColor: 'text-gray-800',
-        avatarBg: 'bg-green-300',
-        badgeBg: 'bg-green-200',
+        backgroundColor:
+          'bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-950 dark:to-teal-950',
+        textColor: 'text-gray-800 dark:text-green-50',
+        avatarBg: 'bg-green-300 dark:bg-green-600',
+        badgeBg: 'bg-green-200 dark:bg-green-700',
       },
       actions: {
         primary: {
@@ -116,7 +119,8 @@ const ComplexProps = () => {
         secondary: {
           label: 'Collaborate',
           onClick: () => setMessage('Starting collaboration with Bob'),
-          className: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+          className:
+            'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600',
         },
       },
     },
@@ -124,7 +128,7 @@ const ComplexProps = () => {
   return (
     <section id="complex" className="sectionCard">
       <Title text={'Complex Props'} />
-      <p className="text-zinc-300">
+      <p className="text-muted-foreground">
         This is an example of using complex props in React components.
       </p>
       <div>
