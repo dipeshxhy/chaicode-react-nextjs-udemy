@@ -9,7 +9,7 @@ body {
 
 @layer components {
   .sectionCard {
-    @apply flex flex-col gap-4 container mx-auto  bg-zinc-700 p-4 rounded-md;
+    @apply flex flex-col gap-4 container mx-auto  bg-zinc-700 p-4 rounded-md mb-4;
   }
 }
 
