@@ -6,10 +6,7 @@ const BasicsProps = () => {
   const [clickCount, setClickCount] = useState(0);
 
   return (
-    <section
-      id="basics"
-      className="flex flex-col gap-4 container mx-auto  bg-zinc-700 p-4 rounded-md"
-    >
+    <section id="basics" className="sectionCard">
       <h2 className="text-2xl font-bold">Basics Props</h2>
       <p className="text-zinc-300">This is examples of using props in React components.</p>
       <p className="text-zinc-300">Click the buttons to see the props in action.</p>

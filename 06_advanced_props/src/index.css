@@ -7,6 +7,12 @@ body {
   @apply bg-gray-900 text-white scroll-smooth;
 }
 
+@layer components {
+  .sectionCard {
+    @apply flex flex-col gap-4 container mx-auto  bg-zinc-700 p-4 rounded-md;
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
