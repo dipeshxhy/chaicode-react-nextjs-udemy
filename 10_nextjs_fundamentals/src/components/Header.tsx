@@ -1,4 +1,12 @@
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 const Header = () => {
+  const pathname = usePathname();
+  const getActiveLink = (path: string) => {
+    return pathname === path;
+  };
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -18,10 +26,30 @@ const Header = () => {
           <span className="ml-3 text-xl">Tailblocks</span>
         </a>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 hover:text-gray-900">First Link</a>
-          <a className="mr-5 hover:text-gray-900">Second Link</a>
-          <a className="mr-5 hover:text-gray-900">Third Link</a>
-          <a className="mr-5 hover:text-gray-900">Fourth Link</a>
+          <Link
+            href="/"
+            className={`mr-5 hover:text-gray-900 ${getActiveLink('/') ? 'text-blue-700 font-bold' : 'text-gray-600'}`}
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className={`mr-5 hover:text-gray-900 ${getActiveLink('/about') ? 'text-blue-700 font-bold' : 'text-gray-600'}`}
+          >
+            About
+          </Link>
+          <Link
+            href="/user"
+            className={`mr-5 hover:text-gray-900 ${getActiveLink('/user') ? 'text-blue-700 font-bold' : 'text-gray-600'}`}
+          >
+            User
+          </Link>
+          <Link
+            href="/contact"
+            className={`mr-5 hover:text-gray-900 ${getActiveLink('/contact') ? 'text-blue-700 font-bold' : 'text-gray-600'}`}
+          >
+            Contact
+          </Link>
         </nav>
         <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
           Button
