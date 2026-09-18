@@ -1,20 +1,61 @@
-import { Button } from '../components/ui/button';
+'use client';
+import { useState } from 'react';
 import AboutPage from './about/page';
+import { Button } from '../components/ui/button';
 
-const HomePage = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1', {
-    cache: 'no-store',
-  });
-  const data = await res.json();
-  console.log(data);
+const HomePage = () => {
+  const [title, setTitle] = useState('');
+  const [completed, setCompleted] = useState(false);
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const response = await fetch('/api/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title, completed }),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      setMessage(
+        data.message + ' Title: ' + data.data.title + ' Completed: ' + data.data.completed,
+      );
+
+      setTitle('');
+      setCompleted(false);
+    }
+  };
   return (
     <div>
       HomePage
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            type="checkbox"
+            name="completed"
+            checked={completed}
+            onChange={(e) => setCompleted(e.target.checked)}
+          />
+          <Button type="submit">Add Todo</Button>
+        </form>
+      </div>
+      <div>
+        <p>{message}</p>
+      </div>
       <AboutPage />
       <div>
-        <h1>{data.title}</h1>
+        <p>This is the home page.</p>
       </div>
-      <Button>click me</Button>
     </div>
   );
 };
